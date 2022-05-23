@@ -1,12 +1,12 @@
-import { response } from "express";
-import React, {useEffect} from "react";
+
+import React, {useEffect, useState} from "react";
 import {Col, Row, Card} from 'antd';
 
 function RestaurantList() {
     const [restaurants, setRestaurants] = useState();
     useEffect(() => {
         // fetch our API
-        fetch('https://my-first-firestore-jbp.web.app')
+        fetch('https://my-first-firestore-jbp.web.app/restaurants')
         .then(response => response.json())
         .then(data => setRestaurants(data)) // data -> restaurants
         .catch(console.error)
@@ -26,9 +26,6 @@ function RestaurantList() {
                     </Card>                
                 </Col>
             )
-                // restaurants -- from API
-
-                //don't forget the key
             )}
             </Row>
         </section>
